@@ -65,3 +65,15 @@ extension ChatViewController:UITableViewDataSource{ // responsible for populatin
 //        print(indexPath.row)
 //    }
 //}
+
+
+// CLASS HEIRARCHY
+// is : type checking // if VAR is TYPE {}
+// as! : forced downcast // let msgCell = cell as! MsgCell -> precisely indicate the subclass
+// as? : // if let msgCell = cell as? MsgCell -> safer way tha forced downcast
+// as : upcast //covert sub class to super class type
+
+//Any > AnyObject > NSObject
+//Any : all objects
+//AnyObject : created from Class ** int,double,... created from struct
+//NSObject : foundation object
