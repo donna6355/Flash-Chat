@@ -19,6 +19,7 @@
 		0B62819E235F0F4D00E35CAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0B62819D235F0F4D00E35CAF /* README.md */; };
 		701F9383284ECA320086E3A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 701F9382284ECA320086E3A5 /* GoogleService-Info.plist */; };
 		702988B7285017FB0082DB46 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702988B6285017FB0082DB46 /* Constants.swift */; };
+		702988B928501D100082DB46 /*  Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702988B828501D100082DB46 /*  Message.swift */; };
 		CA613EABBA19D53EE2D32912 /* Pods_Flash_Chat_iOS13.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7BA95A597766F425A0729E /* Pods_Flash_Chat_iOS13.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		6AD570D4CF994DFEEC7DD21B /* Pods-Flash Chat iOS13.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat iOS13.release.xcconfig"; path = "Target Support Files/Pods-Flash Chat iOS13/Pods-Flash Chat iOS13.release.xcconfig"; sourceTree = "<group>"; };
 		701F9382284ECA320086E3A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		702988B6285017FB0082DB46 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		702988B828501D100082DB46 /*  Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = " Message.swift"; path = "Flash Chat iOS13/ Message.swift"; sourceTree = SOURCE_ROOT; };
 		AA7BA95A597766F425A0729E /* Pods_Flash_Chat_iOS13.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_Chat_iOS13.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 		0B628194235DF03A00E35CAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				702988B828501D100082DB46 /*  Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				0B62818F235DF01000E35CAF /* LoginViewController.swift in Sources */,
 				702988B7285017FB0082DB46 /* Constants.swift in Sources */,
 				0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */,
+				702988B928501D100082DB46 /*  Message.swift in Sources */,
 				0B62818D235DF00B00E35CAF /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
