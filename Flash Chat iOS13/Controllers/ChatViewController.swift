@@ -34,6 +34,31 @@ class ChatViewController: UIViewController {
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         
+        loadMessage()
+        
+    }
+    
+    func loadMessage(){
+        messages = []
+        db.collection(K.FStore.collectionName).getDocuments { querySnapshot, error in
+            if let e = error {
+                print("there was an issue retreiving data from firestore, \(e)")
+            }else {
+                if let snapshotDocs = querySnapshot?.documents{
+                    for doc in snapshotDocs {
+                        let data = doc.data()
+                        if let sender = data[K.FStore.senderField] as? String, let body = data[K.FStore.bodyField] as? String{
+                            self.messages.append(Message(sender: sender, body: body))
+                            
+                            //recommended convention to usd DispatchQueue when it manipulates ui
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
