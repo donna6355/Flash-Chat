@@ -41,26 +41,28 @@ class ChatViewController: UIViewController {
     func loadMessage(){
         //read data only one time : .getDocument
         //keep listening data : .addSnapshotListenr
-        db.collection(K.FStore.collectionName).addSnapshotListener { querySnapshot, error in
-            self.messages = []
-            if let e = error {
-                print("there was an issue retreiving data from firestore, \(e)")
-            }else {
-                if let snapshotDocs = querySnapshot?.documents{
-                    for doc in snapshotDocs {
-                        let data = doc.data()
-                        if let sender = data[K.FStore.senderField] as? String, let body = data[K.FStore.bodyField] as? String{
-                            self.messages.append(Message(sender: sender, body: body))
-                            
-                            //recommended convention to usd DispatchQueue when it manipulates ui
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { querySnapshot, error in
+                self.messages = []
+                if let e = error {
+                    print("there was an issue retreiving data from firestore, \(e)")
+                }else {
+                    if let snapshotDocs = querySnapshot?.documents{
+                        for doc in snapshotDocs {
+                            let data = doc.data()
+                            if let sender = data[K.FStore.senderField] as? String, let body = data[K.FStore.bodyField] as? String{
+                                self.messages.append(Message(sender: sender, body: body))
+                                
+                                //recommended convention to usd DispatchQueue when it manipulates ui
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                             }
                         }
                     }
                 }
             }
-        }
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -68,6 +70,7 @@ class ChatViewController: UIViewController {
             db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField:messageSender,
                 K.FStore.bodyField:messageBody,
+                K.FStore.dateField: Date.timeIntervalSinceReferenceDate
             ]) { error in
                 if let e = error{
                     print("there was an issue saving data in firestore, \(e)")
