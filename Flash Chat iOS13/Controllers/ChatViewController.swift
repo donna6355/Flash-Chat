@@ -57,6 +57,8 @@ class ChatViewController: UIViewController {
                                 //recommended convention to usd DispatchQueue when it manipulates ui
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData()
+                                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                                 }
                             }
                         }
@@ -76,6 +78,9 @@ class ChatViewController: UIViewController {
                     print("there was an issue saving data in firestore, \(e)")
                 } else{
                     print("successfully saved data")
+                    DispatchQueue.main.async {
+                        self.messageTextfield.text = ""
+                    }
                 }
             }
         }
@@ -114,7 +119,7 @@ extension ChatViewController:UITableViewDataSource{ // responsible for populatin
             cell.leftImageView.isHidden = false
             cell.rightImageView.isHidden = true
             cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
-            cell.label.textColor = UIColor(named: K.BrandColors.lightP urple )
+            cell.label.textColor = UIColor(named: K.BrandColors.lightPurple )
         }
         return cell
     }
