@@ -51,3 +51,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+//as multi window feature is provided, scene delegate handles each windows!

@@ -36,3 +36,19 @@ class WelcomeViewController: UIViewController {
     
 
 }
+
+
+//viewController lifecycle
+// viewDidiLoad : IBOutler, Button, objects connected, called only once when view created
+// viewWillAppear : right before draw the screen, good time to modify some ui to hide or show
+// viewDidUppear :  view appear on the screen, start countdown timer or animation
+// viewWillDisappear :
+// viewDidDisappear : user cant see this view
+
+
+//app lifecycle
+// app launched => app visible => app recedes into background => resources reclaimed 
+
+
+
+
